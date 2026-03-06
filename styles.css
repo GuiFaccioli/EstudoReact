@@ -1,0 +1,11 @@
+.primeiraFrase {
+
+    background-color: black;
+    color: lime;
+    padding: 20px;
+    align-items: center;
+    display: flex;
+    border-radius: 50px;
+    border-right: 1000px;
+
+}
