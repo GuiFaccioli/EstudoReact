@@ -1,21 +1,26 @@
+import { useEffect, useState } from "react";
+
 function App() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((res) => res.json())
+      .then((data) => setPosts(data));
+  }, []);
+
   return (
     <div>
-      <Helloworld />
-      <Hello />
-      <World />
-      <h1>Estude!</h1>
+      <h1>Posts</h1>
+
+      {posts.map((post) => (
+        <div key={post.id}>
+          <h2>{post.title}</h2>
+          <p>{post.body}</p>
+        </div>
+      ))}
     </div>
   );
 }
-function Helloworld() {
-  return <h1>Hello World!</h1>;
-}
-function Hello() {
-  return <h1>Hello</h1>;
-}
 
-function World() {
-  return <h1>World</h1>;
-}
 export default App;
